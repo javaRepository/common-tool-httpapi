@@ -1,32 +1,28 @@
-# jtool-apiclient    
-[![Apache License 2](https://img.shields.io/badge/license-ASF2-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0.txt)[
-![Build Status](https://travis-ci.org/JavaServerGroup/jtool-apiclient.svg?branch=master)](https://travis-ci.org/JavaServerGroup/jtool-apiclient)
-[![Coverage Status](https://coveralls.io/repos/github/JavaServerGroup/jtool-apiclient/badge.svg?branch=master)](https://coveralls.io/github/JavaServerGroup/jtool-apiclient?branch=master)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8ad8c94ccc7d4b3280c8ce9e6ccf8c5b)](https://www.codacy.com/app/jiale-chan/jtool-apiclient?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=JavaServerGroup/jtool-apiclient&amp;utm_campaign=Badge_Grade)   
-   
-简易基于http的api请求客户端。不依赖其他库直接使用HttpURLConnection，支持keepalives。支持map和pojo作为请求参数。支持设置header。默认支持jtool的_logId日志系统。
+# common-tool-httpapi------java工具类
+
+简易基于http的api请求客户端。不依赖其他库直接使用HttpURLConnection，支持keepalives。支持map和pojo作为请求参数。支持设置header。默认支持tool的_logId日志系统。
 
 #Quick start
-1.添加jtool的github的repository
+1.添加tool的github的repository
 ```xml
 <repositories>
     <repository>
-        <id>jtool-mvn-repository</id>
-        <url>https://raw.github.com/JavaServerGroup/jtool-mvn-repository/master/releases</url>
+        <id>tool-maven-repository</id>
+        <url>https://raw.github.com/javaRepository/maven-repository/master/releases</url>
     </repository>
 </repositories>
 ```
 2.添加依赖
 ```xml
 <dependency>
-    <groupId>com.jtool</groupId>
-    <artifactId>jtool-apiclient</artifactId>
-    <version>0.0.5</version>
+    <groupId>common.tool</groupId>
+    <artifactId>tool-httpapi</artifactId>
+    <version>0.0.6</version>
 </dependency>
 ```
 2.添加import
 ```xml
-import static ApiClient.Api;
+import static HttpApi.Api;
 ```
 3.使用
 ```java
@@ -67,7 +63,7 @@ uploadImgParam.put("img", new File("~/photo.jpg"));
 uploadImgParam.put("fileName", "myphoto");
 Api().param(uploadImgParam).post("http:/www.example.org");
 ```
-#关于jtool的_logId的说明
+#关于tool的_logId的说明
 get/post方法默认会添加一个_logId参数到你的header
 _logId参数来自于MDC,当需要别的线程发送又希望请求带上_logId, 可以手动设置_logId:
 ```java
